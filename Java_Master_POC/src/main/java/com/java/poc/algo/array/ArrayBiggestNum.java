@@ -1,4 +1,4 @@
-package challenges;
+package com.java.poc.algo.array;
 
 import java.util.ArrayList;
 import java.util.Collections;

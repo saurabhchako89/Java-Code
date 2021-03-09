@@ -1,4 +1,4 @@
-package challenges;
+package com.java.poc.algo.string;
 
 public class fizzbuzz {
 

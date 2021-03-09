@@ -1,4 +1,4 @@
-package challenges;
+package com.java.poc.algo.math;
 
 public class numberOfDigitsInANumber {
   public static void main(String[] args) {

@@ -19,7 +19,7 @@ public class SortingArrayList {
         //Collections.sort(list);
 
         // Custom Natural Sorting
-        //Collections.sort(list,new MyComparator());
+        Collections.sort(list,new MyComparator());
         //System.out.println("After Sorting : "+list.toString());
 
         // Custom Natural Sorting using Lambda Expression

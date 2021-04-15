@@ -2,7 +2,7 @@ package com.java.poc.algo.array;
 
 import java.util.Arrays;
 
-public class ReverseArray {
+public class ReverseArrayInPlace {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
         reverseArray(arr);

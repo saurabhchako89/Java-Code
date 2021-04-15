@@ -60,6 +60,6 @@ public class Fibonacci {
         System.out.println("Fibonacci Sum is :" + fib_recursion(99));
         System.out.println("Fibonacci Sum is :" + fib_tabulation(20));
         initialize();
-        System.out.println("Fibonacci Sum is :" + fib_memoization(99));
+        System.out.println("Fibonacci Sum is :" + fib_memoization(5));
     }
 }

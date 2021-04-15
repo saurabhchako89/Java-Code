@@ -11,5 +11,17 @@ public class MyTreeImpl {
         myTree.insert(29);
         myTree.insert(22);
         myTree.insert(32);
+
+        myTree.traverseInOrder();
+
+        System.out.println(" ");
+
+        System.out.println(myTree.get(30));
+        System.out.println(myTree.get(25));
+        System.out.println(myTree.get(76));
+
+        System.out.println(" ");
+        System.out.println("Max val is : "+myTree.getMaxVal());
+        System.out.println("Min val is : "+myTree.getMinVal());
     }
 }

@@ -9,22 +9,66 @@ public class TreeNode {
         this.data = data;
     }
 
-    public void insert(int val){
-        if(val == data){
+    public int getMinVal() {
+        if (leftChild == null) {
+            return data;
+        } else {
+            return leftChild.getMinVal();
+        }
+    }
+
+    public int getMaxVal() {
+        if (rightChild == null) {
+            return data;
+        } else {
+            return rightChild.getMaxVal();
+        }
+    }
+
+    public TreeNode getValue(int val) {
+        if (val == data) {
+            return this;
+        }
+
+        if (val < data) {
+            if (leftChild != null) {
+                return leftChild.getValue(val);
+            }
+        } else {
+            if (rightChild != null) {
+                return rightChild.getValue(val);
+            }
+        }
+
+        return null;
+    }
+
+    public void insert(int val) {
+        if (val == data) {
             return;
         }
-        if(val < data){
-            if(leftChild == null){
+        if (val < data) {
+            if (leftChild == null) {
                 leftChild = new TreeNode(val);
-            }else{
+            } else {
                 leftChild.insert(val);
             }
-        }else {
-            if(rightChild == null){
+        } else {
+            if (rightChild == null) {
                 rightChild = new TreeNode(val);
-            }else{
+            } else {
                 rightChild.insert(val);
             }
+        }
+    }
+
+    public void traverseInOrder() {
+        if (leftChild != null) {
+            leftChild.traverseInOrder();
+        }
+        System.out.print(data + ", ");
+        if (rightChild != null) {
+            rightChild.traverseInOrder();
         }
     }
 
@@ -50,5 +94,10 @@ public class TreeNode {
 
     public void setRightChild(TreeNode rightChild) {
         this.rightChild = rightChild;
+    }
+
+    @Override
+    public String toString() {
+        return "data = " + data;
     }
 }

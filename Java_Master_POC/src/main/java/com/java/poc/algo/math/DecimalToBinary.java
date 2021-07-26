@@ -41,7 +41,5 @@ public class DecimalToBinary {
             System.out.print(stack.pop());
         }
         System.out.println();
-
-
     }
 }

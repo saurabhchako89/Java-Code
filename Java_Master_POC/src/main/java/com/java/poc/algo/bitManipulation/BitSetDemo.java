@@ -1,4 +1,4 @@
-package com.java.poc.algo.bit_manipulation;
+package com.java.poc.algo.bitManipulation;
 
 import java.util.BitSet;
 

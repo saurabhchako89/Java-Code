@@ -1,32 +1,38 @@
 package com.java.poc.algo.string;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class LongestpalindromicString {
     public static void main(String[] args) {
-        String str = "babad";
-        longestPalindrome(str);
+        String str = "baabnnnb";
+        System.out.println("Longest Palindrome is : "+longestPalindrome(str));
     }
 
     public static String longestPalindrome(String s) {
-        StringBuilder sb;
-        List<String> subStrings = new ArrayList<String>();
-        List<String> palindromes = new ArrayList<String>();
-        for(int i=0;i<s.length();i++){
-            for(int j=i;j<s.length();j++){
-                subStrings.add(s.substring(i,j));
+        if (s.length() == 0) {
+            return "";
+        }
+
+        char[] sChars = s.toCharArray();
+
+        int start = 0;
+        int end = 0;
+
+        for (int i = 0; i < sChars.length; i++) {
+            int len = Math.max(expand(sChars, i, i), expand(sChars, i, i + 1));
+
+            if (len > end - start + 1) {
+                start = i - (len - 1) / 2;
+                end = i + len / 2;
             }
         }
-        System.out.println(subStrings);
-        for(String key : subStrings){
-            if(key.equals(new StringBuilder().append(key).reverse().toString())){
-                palindromes.add(key);
-            }
+
+        return s.substring(start, end + 1);
+    }
+
+    public static int expand(char[] sChars, int i, int j) {
+        while (i >= 0 && j < sChars.length && sChars[i] == sChars[j]) {
+            i--;
+            j++;
         }
-        Collections.sort(palindromes);
-        System.out.println(palindromes);
-        return palindromes.get(palindromes.size() - 1);
+        return j - i - 1;
     }
 }

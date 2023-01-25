@@ -45,6 +45,6 @@ public class Sort {
 
     //sort using java 8
     private void sortUsingJava8(List<String> names) {
-        Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
+        names.sort(String::compareTo);
     }
 }

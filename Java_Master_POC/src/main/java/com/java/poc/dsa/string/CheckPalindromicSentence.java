@@ -2,8 +2,9 @@ package com.java.poc.dsa.string;
 
 public class CheckPalindromicSentence {
     public static void main(String[] args) {
-        String s = "Race A Car";
+        String s = "Race  Car";
         System.out.println(" Is Statement a palindrome ? : "+isPalindrome(s));
+        System.out.println(" Is Statement a palindrome ? : "+isPalindrome2(s));
     }
     public static boolean isPalindrome(String s) {
         int left = 0;
@@ -32,5 +33,32 @@ public class CheckPalindromicSentence {
         }
 
         return true;
+    }
+
+    public static boolean isPalindrome2(String s) {
+
+
+        char[] chars = s.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for(Character c : chars){
+            if(Character.isLetterOrDigit(c)){
+                sb.append(Character.toLowerCase(c));
+            }
+        }
+
+        int left = 0;
+        int right = sb.toString().length()-1;
+
+        while(left < right){
+            if(sb.toString().charAt(left) == sb.toString().charAt(right)){
+                left++;
+                right--;
+            }else{
+                return false;
+            }
+        }
+
+        return true;
+
     }
 }

@@ -16,7 +16,7 @@ public class MoveAllZeroes {
                 nums[k++] = n;
             }
         }
-
+        System.out.println("During : "+Arrays.toString(nums));
         for (int i = k; i < nums.length; i++) {
             nums[i] = 0;
         }

@@ -2,7 +2,7 @@ package com.java.poc.dsa.string;
 
 public class StringToInteger {
     public static void main(String[] args) {
-        String str = "10009999000099990000999900009";
+        String str = "1234";
         convertToInt(str);
     }
 

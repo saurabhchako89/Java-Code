@@ -7,7 +7,8 @@ public class DecimalToBinary {
     public static void main(String[] args) {
 
         int[] binary_array = new int [10000000];
-        int num = 999;
+        int num = 25;
+        System.out.println("Input is : "+num);
         System.out.println(Integer.toBinaryString(num));
         System.out.println("***************************************");
         printBinary(binary_array,num);

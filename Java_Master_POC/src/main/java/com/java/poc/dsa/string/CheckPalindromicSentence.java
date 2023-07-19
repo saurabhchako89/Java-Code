@@ -45,7 +45,7 @@ public class CheckPalindromicSentence {
                 sb.append(Character.toLowerCase(c));
             }
         }
-
+        System.out.println(sb.toString());
         int left = 0;
         int right = sb.toString().length()-1;
 

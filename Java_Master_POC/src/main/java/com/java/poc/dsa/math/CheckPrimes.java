@@ -9,12 +9,17 @@ public class CheckPrimes {
     }
 
     private static void isPrime(int num) {
+        int count = 0;
         for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
-                System.out.println(num + " is a prime number");
-            } else {
-                System.out.println("Number is not a prime number !");
+            if(num%i == 0){
+                count ++;
             }
+        }
+
+        if(count > 1){
+            System.out.println(num+" is not a prime");
+        }else{
+            System.out.println(num+" is a prime");
         }
     }
 }

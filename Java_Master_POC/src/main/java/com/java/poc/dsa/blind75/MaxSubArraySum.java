@@ -1,4 +1,4 @@
-package com.java.poc.dsa.array;
+package com.java.poc.dsa.blind75;
 
 /**
  * 53. Maximum Subarray

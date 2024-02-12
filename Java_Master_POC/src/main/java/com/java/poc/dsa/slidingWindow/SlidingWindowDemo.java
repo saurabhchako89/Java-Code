@@ -12,8 +12,8 @@ public class SlidingWindowDemo {
         int sum = 0;
         int maxSum = 0;
 
-        for (int windowStart = 0; windowStart < nums.length; windowStart++) {
-            sum += nums[windowStart];
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
             count ++;
             if(maxSum < sum){
                 maxSum = sum;

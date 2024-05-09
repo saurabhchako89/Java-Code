@@ -1,4 +1,4 @@
-package com.java.poc.dsa.blind75;
+package com.java.poc.dsa.blindPracticeList;
 
 import java.util.*;
 

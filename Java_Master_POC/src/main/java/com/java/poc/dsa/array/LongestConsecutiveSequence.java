@@ -34,7 +34,7 @@ import java.util.Set;
 public class LongestConsecutiveSequence {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{12, 13, 2, 3, 34, 1};
+        int[] nums = new int[]{4,0,0,3,2,1,5,6,7,1};
         System.out.println("longest consecutive sequence in the array is : "+longestConsecutive(nums));
     }
 
@@ -48,20 +48,18 @@ public class LongestConsecutiveSequence {
             set.add(i);
         }
 
-        int max_count = 0;
-        for (int num : nums) {
-            int curr_num = num;
-            int curr_count = 1;
-            if (!set.contains(curr_num - 1)) {
-                while (set.contains(curr_num + 1)) {
-                    curr_num += 1;
-                    curr_count += 1;
+        int longest=0;
+        for(int n : nums){
+            if(!set.contains(n-1)){
+                int count=1;
+                while(set.contains(n+1)){
+                    n++;
+                    count++;
                 }
-
-                max_count = Math.max(max_count, curr_count);
+                longest=Math.max(longest,count);
             }
         }
 
-        return max_count;
+        return longest;
     }
 }

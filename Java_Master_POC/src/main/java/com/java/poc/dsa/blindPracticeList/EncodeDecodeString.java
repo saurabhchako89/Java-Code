@@ -1,5 +1,8 @@
 package com.java.poc.dsa.blindPracticeList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 659 · Encode and Decode Strings
  * Algorithms
@@ -39,8 +42,36 @@ package com.java.poc.dsa.blindPracticeList;
 public class EncodeDecodeString {
 
     public static void main(String[] args) {
+        List<String> strList = new ArrayList<>();
+        strList.add("lint");
+        strList.add("code");
+        strList.add("love");
+        strList.add("you");
+
+        System.out.println("Encoded list is : "+encode(strList));
+
+        System.out.println("Decoded list is :"+decode(encode(strList)));
 
     }
 
+    public static String encode(List<String> strs) {
+        StringBuilder encodedString = new StringBuilder();
+        for (String str : strs) {
+            encodedString.append(str.length()).append("#").append(str);
+        }
+        return encodedString.toString();
+    }
+
+    public static List<String> decode(String str) {
+        List<String> list = new ArrayList<>();
+        int i=0;
+        while(i<str.length()){
+            int delimiter = str.indexOf('#',i);
+            int size = Integer.parseInt(str.substring(i,delimiter));
+            i = delimiter+size+1;
+            list.add(str.substring(delimiter+1,i));
+        }
+        return list;
+    }
 
 }

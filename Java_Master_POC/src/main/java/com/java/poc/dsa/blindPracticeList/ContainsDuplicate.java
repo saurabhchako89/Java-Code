@@ -1,6 +1,8 @@
 package com.java.poc.dsa.blindPracticeList;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 217. Contains Duplicate
@@ -36,6 +38,8 @@ public class ContainsDuplicate {
     public static void main(String[] args) {
         int[] nums = new int[]{1,2,3,1};
         System.out.println(containsDuplicate(nums));
+
+        System.out.println(containsDuplicateHashing(nums));
     }
 
     public static boolean containsDuplicate(int[] nums) {
@@ -46,6 +50,16 @@ public class ContainsDuplicate {
             }
         }
 
+        return false;
+    }
+
+    public static boolean containsDuplicateHashing(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
+                return true;
+            }
+        }
         return false;
     }
 }

@@ -35,10 +35,12 @@ import java.util.Arrays;
 public class ValidAnagram {
 
     public static void main(String[] args) {
-        System.out.println(isAnagram("rat","tar"));
+        System.out.println(isAnagram1("rat","Tar"));
+        System.out.println(isAnagram2("rat","Tar"));
+        System.out.println(isAnagram3("rat","Tar"));
     }
 
-    public static boolean isAnagram(String s, String t) {
+    public static boolean isAnagram1(String s, String t) {
         char[] chars_s = s.toCharArray();
         Arrays.sort(chars_s);
         StringBuilder sb1 = new StringBuilder();
@@ -53,9 +55,44 @@ public class ValidAnagram {
             sb2.append(c2.toString());
         }
 
-        if(sb1.toString().equals(sb2.toString())){
-            return true;
-        }
-        return false;
+        return sb1.toString().equals(sb2.toString());
     }
+
+    public static boolean isAnagram2(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        int[] counts = new int[26]; // Assuming only lowercase letters
+
+        for (char c : s.toLowerCase().toCharArray()) {
+            counts[c - 'a']++;
+        }
+
+        for (char c : t.toLowerCase().toCharArray()) {
+            counts[c - 'a']--;
+            if (counts[c - 'a'] < 0) {
+                return false; // Character count mismatch
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isAnagram3(String s, String t) {
+        char[] chars_s = s.toCharArray();
+        Arrays.sort(chars_s);
+
+        char[] chars_t = t.toCharArray();
+        Arrays.sort(chars_t);
+
+        for(int i=0;i<s.length();i++){
+            if(chars_s[i] != chars_t[i]){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }

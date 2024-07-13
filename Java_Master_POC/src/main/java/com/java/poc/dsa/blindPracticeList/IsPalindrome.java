@@ -54,10 +54,10 @@ public class IsPalindrome {
         }
 
         int left = 0;
-        int right = sb.toString().length() - 1;
+        int right = sb.length() - 1;
 
         while (left < right) {
-            if (sb.toString().charAt(left) == sb.toString().charAt(right)) {
+            if (sb.charAt(left) == sb.charAt(right)) {
                 left++;
                 right--;
             } else {

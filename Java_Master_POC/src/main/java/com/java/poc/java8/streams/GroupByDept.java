@@ -1,12 +1,14 @@
 package com.java.poc.java8.streams;
 
+import com.java.poc.java8.model.Employee;
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class GroupStudentByDept {
+public class GroupByDept {
     public static void main(String[] args) {
-        Map<String, List<Student>> mapData = new Student().getStudentList().stream().collect(Collectors.groupingBy(Student::getDepartmantName));
+        Map<String, List<Employee>> mapData = new Employee().getEmployeeList().stream().collect(Collectors.groupingBy(Employee::getDepartmantName));
         System.out.println("Students grouped by the department names : "+mapData);
     }
 }

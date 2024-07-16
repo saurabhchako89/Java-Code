@@ -1,12 +1,12 @@
-package com.java.poc.java8.streams;
+package com.java.poc.java8.model;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * The Class Student.
+ * The Class Employee.
  */
-public class Student {
+public class Employee {
 
     /** The id. */
     private int id;
@@ -35,14 +35,14 @@ public class Student {
     /** The rank. */
     private int rank;
 
-    List<Student> studentList;
+    List<Employee> employeeList;
 
 
-    public Student() {
+    public Employee() {
     }
 
-    public Student(int id, String firstName, String lastName, int age, String gender, String departmantName,
-                   int joinedYear, String city, int rank) {
+    public Employee(int id, String firstName, String lastName, int age, String gender, String departmantName,
+                    int joinedYear, String city, int rank) {
         super();
         this.id = id;
         this.firstName = firstName;
@@ -217,24 +217,24 @@ public class Student {
         this.rank = rank;
     }
 
-    public List<Student> getStudentList() {
-        List<Student> list = Arrays.asList(
-                new Student(1, "Rohit", "Mall", 30, "Male", "Mechanical Engineering", 2015, "Mumbai", 122),
-                new Student(2, "Pulkit", "Singh", 56, "Male", "Computer Engineering", 2018, "Delhi", 67),
-                new Student(3, "Ankit", "Patil", 25, "Female", "Mechanical Engineering", 2019, "Kerala", 164),
-                new Student(4, "Satish Ray", "Malaghan", 30, "Male", "Mechanical Engineering", 2014, "Kerala", 26),
-                new Student(5, "Roshan", "Mukd", 23, "Male", "Biotech Engineering", 2022, "Mumbai", 12),
-                new Student(6, "Chetan", "Star", 24, "Male", "Mechanical Engineering", 2023, "Karnataka", 90),
-                new Student(7, "Arun", "Vittal", 26, "Male", "Electronics Engineering", 2014, "Karnataka", 324),
-                new Student(8, "Nam", "Dev", 31, "Male", "Computer Engineering", 2014, "Karnataka", 433),
-                new Student(9, "Sonu", "Shankar", 27, "Female", "Computer Engineering", 2018, "Karnataka", 7),
-                new Student(10, "Shubham", "Pandey", 26, "Male", "Instrumentation Engineering", 2017, "Mumbai", 98));
+    public List<Employee> getEmployeeList() {
+        List<Employee> list = Arrays.asList(
+                new Employee(1, "Rohit", "Mall", 30, "Male", "Mechanical Engineering", 2015, "Mumbai", 122),
+                new Employee(2, "Pulkit", "Singh", 56, "Male", "Computer Engineering", 2018, "Delhi", 67),
+                new Employee(3, "Ankit", "Patil", 25, "Female", "Mechanical Engineering", 2019, "Kerala", 164),
+                new Employee(4, "Satish Ray", "Malaghan", 30, "Male", "Mechanical Engineering", 2014, "Kerala", 26),
+                new Employee(5, "Roshan", "Mukd", 23, "Male", "Biotech Engineering", 2022, "Mumbai", 12),
+                new Employee(6, "Chetan", "Star", 24, "Male", "Mechanical Engineering", 2023, "Karnataka", 90),
+                new Employee(7, "Arun", "Vittal", 26, "Male", "Electronics Engineering", 2014, "Karnataka", 324),
+                new Employee(8, "Nam", "Dev", 31, "Male", "Computer Engineering", 2014, "Karnataka", 433),
+                new Employee(9, "Sonu", "Shankar", 27, "Female", "Computer Engineering", 2018, "Karnataka", 7),
+                new Employee(10, "Shubham", "Pandey", 26, "Male", "Instrumentation Engineering", 2017, "Mumbai", 98));
 
         return list;
     }
 
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 
     /**

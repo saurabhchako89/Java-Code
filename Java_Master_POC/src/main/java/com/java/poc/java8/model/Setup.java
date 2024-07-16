@@ -1,8 +1,4 @@
-package com.java.poc.java8;
-
-import com.java.poc.java8.model.Address;
-import com.java.poc.java8.model.MobileNumber;
-import com.java.poc.java8.model.Student;
+package com.java.poc.java8.model;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,6 +1,5 @@
 package com.java.poc.java8.streams;
 
-import com.java.poc.java8.Setup;
 import com.java.poc.java8.model.*;
 
 import java.util.*;
@@ -69,17 +68,17 @@ public class StreamTest {
 
         List<TempStudent> tmpStudents = Arrays.asList(tmpStud1, tmpStud2);
 
-        List<Student> studentList = tmpStudents.stream()
+        List<Student> employeeList = tmpStudents.stream()
                 .map(tmpStud -> new Student(tmpStud.name, tmpStud.age, tmpStud.address, tmpStud.mobileNumbers))
                 .collect(Collectors.toList());
 
-        System.out.println(studentList);
+        System.out.println(employeeList);
         System.out.println("--------------------");
 
         /*****************************************************
-         Convert List<Student> to List<String> of student name
+         Convert List<Employee> to List<String> of student name
          *****************************************************/
-        List<String> studentsName = studentList.stream()
+        List<String> studentsName = employeeList.stream()
                 .map(Student::getName)
                 .collect(Collectors.toList());
 
@@ -88,7 +87,7 @@ public class StreamTest {
         System.out.println("--------------------");
 
         /*****************************************************
-         Convert List<students> to String
+         Convert List<employees> to String
          *****************************************************/
         String name = students.stream()
                 .map(Student::getName)

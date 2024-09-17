@@ -2,7 +2,7 @@ package com.java.poc.dsa.stack;
 
 import java.util.Stack;
 
-public class LongestValidParenthesis {
+public class LongestValidParentheses {
     public static void main(String[] args) {
         String str = "(()";
         System.out.println(longestValidParentheses(str));

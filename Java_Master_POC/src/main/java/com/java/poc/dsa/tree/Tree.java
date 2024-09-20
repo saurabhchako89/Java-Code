@@ -47,16 +47,16 @@ public class Tree {
     private TreeNode delete(TreeNode subtreeRoot, int val){
         if(subtreeRoot == null){
             return subtreeRoot;
-        }if(val < subtreeRoot.getData()){
-            subtreeRoot.setLeftChild(delete(subtreeRoot.getLeftChild(),val));
-        } else if(val > subtreeRoot.getData()){
-            subtreeRoot.setRightChild(delete(subtreeRoot.getRightChild(),val));
+        }if(val < subtreeRoot.getVal()){
+            subtreeRoot.setLeft(delete(subtreeRoot.getLeft(),val));
+        } else if(val > subtreeRoot.getVal()){
+            subtreeRoot.setRight(delete(subtreeRoot.getRight(),val));
         }else{
             //cases 0 & 1 : node to delete if 0 or 1 child
-            if(subtreeRoot.getLeftChild() == null){
-                return subtreeRoot.getRightChild();
-            }else if(subtreeRoot.getRightChild() == null){
-                return subtreeRoot.getLeftChild();
+            if(subtreeRoot.getLeft() == null){
+                return subtreeRoot.getRight();
+            }else if(subtreeRoot.getRight() == null){
+                return subtreeRoot.getLeft();
             }
         }
 

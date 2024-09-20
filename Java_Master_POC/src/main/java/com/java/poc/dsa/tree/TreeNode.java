@@ -1,42 +1,45 @@
 package com.java.poc.dsa.tree;
 
 public class TreeNode {
-    private int data;
-    private TreeNode leftChild;
-    private TreeNode rightChild;
+    private int val;
+    private TreeNode left;
+    private TreeNode right;
 
-    public TreeNode(int data) {
-        this.data = data;
+    public TreeNode() {
+    }
+
+    public TreeNode(int val) {
+        this.val = val;
     }
 
     public int getMinVal() {
-        if (leftChild == null) {
-            return data;
+        if (left == null) {
+            return val;
         } else {
-            return leftChild.getMinVal();
+            return left.getMinVal();
         }
     }
 
     public int getMaxVal() {
-        if (rightChild == null) {
-            return data;
+        if (right == null) {
+            return val;
         } else {
-            return rightChild.getMaxVal();
+            return right.getMaxVal();
         }
     }
 
     public TreeNode getValue(int val) {
-        if (val == data) {
+        if (val == val) {
             return this;
         }
 
-        if (val < data) {
-            if (leftChild != null) {
-                return leftChild.getValue(val);
+        if (val < val) {
+            if (left != null) {
+                return left.getValue(val);
             }
         } else {
-            if (rightChild != null) {
-                return rightChild.getValue(val);
+            if (right != null) {
+                return right.getValue(val);
             }
         }
 
@@ -44,60 +47,60 @@ public class TreeNode {
     }
 
     public void insert(int val) {
-        if (val == data) {
+        if (val == val) {
             return;
         }
-        if (val < data) {
-            if (leftChild == null) {
-                leftChild = new TreeNode(val);
+        if (val < val) {
+            if (left == null) {
+                left = new TreeNode(val);
             } else {
-                leftChild.insert(val);
+                left.insert(val);
             }
         } else {
-            if (rightChild == null) {
-                rightChild = new TreeNode(val);
+            if (right == null) {
+                right = new TreeNode(val);
             } else {
-                rightChild.insert(val);
+                right.insert(val);
             }
         }
     }
 
     public void traverseInOrder() {
-        if (leftChild != null) {
-            leftChild.traverseInOrder();
+        if (left != null) {
+            left.traverseInOrder();
         }
-        System.out.print(data + ", ");
-        if (rightChild != null) {
-            rightChild.traverseInOrder();
+        System.out.print(val + ", ");
+        if (right != null) {
+            right.traverseInOrder();
         }
     }
 
-    public int getData() {
-        return data;
+    public int getVal() {
+        return val;
     }
 
-    public void setData(int data) {
-        this.data = data;
+    public void setVal(int val) {
+        this.val = val;
     }
 
-    public TreeNode getLeftChild() {
-        return leftChild;
+    public TreeNode getLeft() {
+        return left;
     }
 
-    public void setLeftChild(TreeNode leftChild) {
-        this.leftChild = leftChild;
+    public void setLeft(TreeNode left) {
+        this.left = left;
     }
 
-    public TreeNode getRightChild() {
-        return rightChild;
+    public TreeNode getRight() {
+        return right;
     }
 
-    public void setRightChild(TreeNode rightChild) {
-        this.rightChild = rightChild;
+    public void setRight(TreeNode right) {
+        this.right = right;
     }
 
     @Override
     public String toString() {
-        return "data = " + data;
+        return "data = " + val;
     }
 }

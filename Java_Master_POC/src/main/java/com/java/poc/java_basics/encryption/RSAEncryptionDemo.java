@@ -1,4 +1,4 @@
-package com.java.poc.encryption;
+package com.java.poc.java_basics.encryption;
 
 import javax.crypto.Cipher;
 import java.security.KeyPair;

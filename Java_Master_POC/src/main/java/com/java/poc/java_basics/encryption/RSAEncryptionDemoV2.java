@@ -1,4 +1,4 @@
-package com.java.poc.encryption;
+package com.java.poc.java_basics.encryption;
 
 import org.apache.commons.codec.binary.Base64;
 

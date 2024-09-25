@@ -1,7 +1,5 @@
 package com.java.poc.dsa.string;
 
-import java.sql.SQLOutput;
-
 public class ReverseString2 {
 
     public static void main(String[] args) {

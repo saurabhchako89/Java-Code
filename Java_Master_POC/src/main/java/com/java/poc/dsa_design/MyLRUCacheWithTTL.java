@@ -1,4 +1,4 @@
-package com.java.poc.dsa.design;
+package com.java.poc.dsa_design;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

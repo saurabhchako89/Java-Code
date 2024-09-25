@@ -1,4 +1,4 @@
-package com.java.poc.dsa.design;
+package com.java.poc.dsa_design;
 
 class MyLinkedList {
     // Node class representing each element in the linked list

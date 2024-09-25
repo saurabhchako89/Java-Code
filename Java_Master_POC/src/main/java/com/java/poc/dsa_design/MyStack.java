@@ -1,4 +1,4 @@
-package com.java.poc.dsa.design;
+package com.java.poc.dsa_design;
 
 class MyStack<T> {
     private Node<T> top; // The top of the stack

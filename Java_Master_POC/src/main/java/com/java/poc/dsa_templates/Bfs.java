@@ -1,6 +1,5 @@
 package com.java.poc.dsa_templates;
 
-import com.java.poc.dsa.tree.Tree;
 import com.java.poc.dsa.tree.TreeNode;
 
 import java.util.ArrayList;

@@ -1,6 +1,5 @@
 package com.java.poc.dsa.stack;
 
-import java.sql.SQLOutput;
 import java.util.Stack;
 
 public class MinLength {

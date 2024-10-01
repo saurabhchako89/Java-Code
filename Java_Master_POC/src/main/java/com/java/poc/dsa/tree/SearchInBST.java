@@ -3,12 +3,18 @@ package com.java.poc.dsa.tree;
 public class SearchInBST {
 
     public static void main(String[] args) {
-        TreeNode1 myTree = new TreeNode1();
-
+        TreeNode treenode = new TreeNode(24);
+        treenode.left = new TreeNode(16);
+        treenode.right = new TreeNode(30);
+        treenode.left.left = new TreeNode(13);
+        treenode.left.right = new TreeNode(20);
+        treenode.right.left = new TreeNode(25);
+        System.out.println(treenode);
+        System.out.println(searchBST(treenode, 30));
     }
 
-    public TreeNode1 searchBST(TreeNode1 root, int val) {
-        TreeNode1 ans;
+    public static TreeNode searchBST(TreeNode root, int val) {
+        TreeNode ans;
         if(root==null||root.val==val){
             return root;
         }

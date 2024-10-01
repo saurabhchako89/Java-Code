@@ -1,4 +1,4 @@
-package com.java.poc;
+package com.java.poc.dedupe;
 
 import java.util.Arrays;
 import java.util.*;

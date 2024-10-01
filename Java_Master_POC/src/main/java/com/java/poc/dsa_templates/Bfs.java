@@ -11,16 +11,14 @@ public class Bfs {
 
     public static void main(String[] args) {
 
-        TreeNode myTree = new TreeNode(1);
-        myTree.insert(25);
-        myTree.insert(20);
-        myTree.insert(15);
-        myTree.insert(27);
-        myTree.insert(30);
-        myTree.insert(29);
-        myTree.insert(22);
-        myTree.insert(32);
-        System.out.println("My Tree : "+bfsTraversal(myTree));
+        TreeNode treenode = new TreeNode(24);
+        treenode.left = new TreeNode(16);
+        treenode.right = new TreeNode(30);
+        treenode.left.left = new TreeNode(13);
+        treenode.left.right = new TreeNode(20);
+        treenode.right.left = new TreeNode(25);
+        System.out.println(treenode);
+        System.out.println("My Tree : "+bfsTraversal(treenode));
     }
 
     public static List<List<Integer>> bfsTraversal(TreeNode root) {
@@ -36,11 +34,11 @@ public class Bfs {
 
             for (int i = 0; i < levelSize; i++) {
                 TreeNode currentNode = queue.poll();
-                currentLevel.add(currentNode.getVal());
+                currentLevel.add(currentNode.val);
 
                 // Add left and right children to the queue
-                if (currentNode.getLeft() != null) queue.offer(currentNode.getLeft());
-                if (currentNode.getRight() != null) queue.offer(currentNode.getRight());
+                if (currentNode.left != null) queue.offer(currentNode.left);
+                if (currentNode.right != null) queue.offer(currentNode.right);
             }
 
             result.add(currentLevel); // Add the current level to the result

@@ -11,12 +11,12 @@ public class Dfs {
         if (root == null) return false;
 
         // Check if it's a leaf node
-        if (root.getLeft() == null && root.getRight() == null) {
-            return sum == root.getVal();
+        if (root.left == null && root.right == null) {
+            return sum == root.val;
         }
 
         // Recursively check both subtrees
-        return hasPathSum(root.getLeft(), sum - root.getVal()) || hasPathSum(root.getRight(), sum - root.getVal());
+        return hasPathSum(root.getLeft(), sum - root.val) || hasPathSum(root.right, sum - root.val);
     }
 
 }

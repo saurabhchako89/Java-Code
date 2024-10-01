@@ -1,4 +1,4 @@
-package com.java.poc;
+package com.java.poc.dedupe;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

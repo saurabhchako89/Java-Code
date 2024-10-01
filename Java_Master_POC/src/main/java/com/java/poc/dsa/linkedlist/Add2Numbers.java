@@ -37,6 +37,50 @@ package com.java.poc.dsa.linkedlist;
 public class Add2Numbers {
 
     public static void main(String[] args) {
+        ListNode listA1 = new ListNode(1);
+        ListNode listA2 = new ListNode(9);
+        listA1.next = listA2;
+        System.out.println(listA1);
 
+        ListNode listB1 = new ListNode(1);
+        ListNode listB2 = new ListNode(4);
+        ListNode listB3 = new ListNode(9);
+        listB1.next = listB2;
+        listB2.next = listB3;
+        System.out.println(listB1);
+
+        System.out.println(addTwoNumbers(listA1,listB1).toString());
+    }
+
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode(0);
+        ListNode ptr = result;
+        int carry = 0;
+
+        while(l1 != null || l2 != null){
+            int sum = carry;
+
+            if(l1 !=null){
+                sum+=l1.val;
+                l1=l1.next;
+            }
+
+            if(l2 != null){
+                sum+=l2.val;
+                l2=l2.next;
+            }
+
+            carry = sum/10;
+            sum = sum%10;
+            ptr.next = new ListNode(sum);
+            ptr=ptr.next;
+
+        }
+
+        if(carry == 1){
+            ptr.next = new ListNode(1);
+        }
+
+        return result.next;
     }
 }

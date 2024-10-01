@@ -1,6 +1,6 @@
 package com.java.poc.dsa.string;
 
-public class LongestpalindromicString {
+public class LongestPalindromicString {
     public static void main(String[] args) {
         String str = "baabnnnb";
         System.out.println("Longest Palindrome is : "+longestPalindrome(str));

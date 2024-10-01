@@ -24,7 +24,7 @@ public class FindMiddleOfLinkedList {
         ListNode slow = head;
         ListNode fast = head;
 
-        if (null != head) {
+        if (head != null) {
             while (fast != null && fast.next != null) {
                 slow = slow.next;
                 fast = fast.next.next;

@@ -7,7 +7,6 @@ public class PalindromicSubStrings {
     }
     public static int countSubstrings(String s) {
         int count = 0;
-        int len = s.length();
         for(int i = 0; i< s.length(); i++){
             for(int j = i+1; j <= s.length();j++){
                 String tmp = s.substring(i,j);

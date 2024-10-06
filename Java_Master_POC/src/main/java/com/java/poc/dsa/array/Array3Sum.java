@@ -1,9 +1,6 @@
 package com.java.poc.dsa.array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * 15. 3Sum
@@ -53,8 +50,7 @@ public class Array3Sum {
         int target = 10;
         System.out.println("target : " + target);
         List<List<Integer>> arrElementList = calculate_using_brute_force(arr, target);
-        //List<List<Integer>> arrElementList = calculate_using_sorting(arr,target);
-        //List<List<Integer>> arrElementList = calculate_using_hashing(arr,target);
+        List<List<Integer>> arrElementList1 = calculate_using_sorting(arr,target);
 
         if (arrElementList.size() == 0) {
             System.out.println("No matching triplet found !");
@@ -120,4 +116,5 @@ public class Array3Sum {
         }
         return elementList;
     }
+
 }

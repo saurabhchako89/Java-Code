@@ -1,4 +1,4 @@
-package com.java.poc.curatedPracticeList.blind75;
+package com.java.poc.blind75;
 
 /**
  * 125. Valid Palindrome
@@ -35,7 +35,7 @@ package com.java.poc.curatedPracticeList.blind75;
  * 1 <= s.length <= 2 * 105
  * s consists only of printable ASCII characters.
  */
-public class IsPalindrome {
+public class ValidPalindrome {
 
     public static void main(String[] args) {
         String str = "race a car";

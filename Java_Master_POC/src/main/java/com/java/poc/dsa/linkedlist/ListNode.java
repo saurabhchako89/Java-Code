@@ -2,12 +2,12 @@ package com.java.poc.dsa.linkedlist;
 
 public class ListNode {
     int val;
-    ListNode next;
+    public ListNode next;
 
     public ListNode() {
     }
 
-    ListNode(int x) {
+    public ListNode(int x) {
         val = x;
     }
 

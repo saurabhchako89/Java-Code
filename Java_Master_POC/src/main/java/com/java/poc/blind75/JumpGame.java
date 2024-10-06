@@ -1,4 +1,4 @@
-package com.java.poc.curatedPracticeList.blind75;
+package com.java.poc.blind75;
 
 /**
  * 55. Jump Game

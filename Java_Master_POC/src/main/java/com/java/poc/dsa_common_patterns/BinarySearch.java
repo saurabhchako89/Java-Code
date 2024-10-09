@@ -1,4 +1,4 @@
-package com.java.poc.dsa_templates;
+package com.java.poc.dsa_common_patterns;
 
 public class BinarySearch {
 

@@ -1,4 +1,4 @@
-package com.java.poc.dsa_basics;
+package com.java.poc.dsa_common_questions;
 
 public class ConvertIntArrayToNumber {
     public static void main(String[] args) {

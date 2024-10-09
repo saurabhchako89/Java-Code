@@ -1,4 +1,7 @@
-package com.java.poc.dsa.string;
+package com.java.poc.blind75;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 647. Palindromic Substrings
@@ -32,37 +35,37 @@ package com.java.poc.dsa.string;
  * 1 <= s.length <= 1000
  * s consists of lowercase English letters.
  */
-public class PalindromicSubStrings {
+public class PalindromicSubString {
 
     public static void main(String[] args) {
-        System.out.println("Total count of palindromic substrings : "+countSubstrings("aaaba"));
+        System.out.println(countSubstrings("aaaba"));
     }
+
     public static int countSubstrings(String s) {
         int count = 0;
-        for(int i = 0; i< s.length(); i++){
-            for(int j = i+1; j <= s.length();j++){
-                String tmp = s.substring(i,j);
-                if(checkPalindrome(tmp)){
-                    System.out.println("palindromic substring : "+tmp);
-                    count ++;
+        for(int i=0;i<s.length();i++){
+            for(int j=i+1;j<=s.length();j++){
+                if(checkPalindrome(s.substring(i,j))){
+                    count++;
                 }
             }
         }
+
         return count;
     }
 
-    private static boolean checkPalindrome(String str) {
+    public static boolean checkPalindrome(String s){
         int left = 0;
-        int right = str.length() - 1;
-        while (left <= right) {
-            if (str.charAt(left) != str.charAt(right)) {
+        int right = s.length()-1;
+        while(left<right){
+            if(s.charAt(left) != s.charAt(right)){
                 return false;
-            } else {
+            }else{
                 left++;
                 right--;
             }
         }
+
         return true;
     }
 }
-

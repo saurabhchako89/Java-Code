@@ -1,9 +1,6 @@
 package com.java.poc.dsa.array;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FindDuplicatesInArray {
 
@@ -11,10 +8,11 @@ public class FindDuplicatesInArray {
 
         int[] nums = new int[]{1,2,2,3,3,4,5};
 
-        findDupes(nums);
+        System.out.println(findDupes(nums));
+        System.out.println(findDupes2(nums));
     }
 
-    private static void findDupes(int[] nums) {
+    private static List<Integer> findDupes(int[] nums) {
         Map<Integer,Integer> integerMap = new HashMap<>();
         List<Integer> dupArray = new ArrayList<>();
         for (int num : nums) {
@@ -24,7 +22,6 @@ public class FindDuplicatesInArray {
                 integerMap.put(num, 1);
             }
         }
-        System.out.println(integerMap.toString());
 
         for(int key : integerMap.keySet()){
             if(integerMap.get(key) > 1){
@@ -32,7 +29,22 @@ public class FindDuplicatesInArray {
             }
         }
 
-        System.out.println("The duplicates are : "+ dupArray.toString());
+
+        return dupArray;
     }
 
+
+    private static List<Integer> findDupes2(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        List<Integer> dupArray = new ArrayList<>();
+        for (int num : nums) {
+            if (set.contains(num)) {
+                dupArray.add(num);
+            } else {
+                set.add(num);
+            }
+        }
+
+        return dupArray;
+    }
 }

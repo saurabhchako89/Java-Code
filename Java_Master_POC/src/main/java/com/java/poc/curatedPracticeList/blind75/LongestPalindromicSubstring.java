@@ -1,57 +1,59 @@
-package com.java.poc.blind75;
+package com.java.poc.curatedPracticeList.blind75;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
- * 647. Palindromic Substrings
+ * 5. Longest Palindromic Substring
  * Solved
  * Medium
  * Topics
  * Companies
  * Hint
- * Given a string s, return the number of palindromic substrings in it.
+ * Given a string s, return the longest
+ * palindromic
  *
- * A string is a palindrome when it reads the same backward as forward.
- *
- * A substring is a contiguous sequence of characters within the string.
+ * substring
+ *  in s.
  *
  *
  *
  * Example 1:
  *
- * Input: s = "abc"
- * Output: 3
- * Explanation: Three palindromic strings: "a", "b", "c".
+ * Input: s = "babad"
+ * Output: "bab"
+ * Explanation: "aba" is also a valid answer.
  * Example 2:
  *
- * Input: s = "aaa"
- * Output: 6
- * Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+ * Input: s = "cbbd"
+ * Output: "bb"
  *
  *
  * Constraints:
  *
  * 1 <= s.length <= 1000
- * s consists of lowercase English letters.
+ * s consist of only digits and English letters.
  */
-public class PalindromicSubString {
+public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
-        System.out.println(countSubstrings("aaaba"));
+        System.out.println(longestPalindrome("aaaba"));
     }
 
-    public static int countSubstrings(String s) {
-        int count = 0;
+    public static String longestPalindrome(String s) {
+        List<String> list = new ArrayList<>();
         for(int i=0;i<s.length();i++){
             for(int j=i+1;j<=s.length();j++){
                 if(checkPalindrome(s.substring(i,j))){
-                    count++;
+                    list.add(s.substring(i,j));
                 }
             }
         }
 
-        return count;
+        list.sort(Comparator.comparing(String::length));
+        return list.get(list.size()-1);
     }
 
     public static boolean checkPalindrome(String s){

@@ -1,4 +1,4 @@
-package com.java.poc.blind75;
+package com.java.poc.curatedPracticeList.blind75;
 
 import java.util.HashSet;
 import java.util.Set;

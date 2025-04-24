@@ -4,34 +4,41 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashSet;
+import java.util.Set;
 
-public class JSONParser {
+public class FindPeopleWhoAreNotFollowing {
 
     public static void main(String[] args) {
-// Path to the JSON file
-        String followers = "src/test/java/com/java/poc/followers.json";
-        System.out.println("Followers : ");
-        parseJson(followers);
+        // Paths to the JSON files
+        String followersFile = "src/test/java/com/java/poc/dedupe/followers.json";
+        String followingFile = "src/test/java/com/java/poc/dedupe/following.json";
 
-        String following = "src/test/java/com/java/poc/following.json";
-        System.out.println("Following : ");
-        parseJson(following);
+        // Parse both followers and following JSON files
+        Set<String> followers = parseJson(followersFile);
+        Set<String> following = parseJson(followingFile);
 
+        // Find people not following back (i.e., people in 'following' but not in 'followers')
+        Set<String> notFollowingBack = new HashSet<>(following);
+        notFollowingBack.removeAll(followers);
+
+        // Print the list of people who are not following back
+        System.out.println("People not following back: ");
+        for (String person : notFollowingBack) {
+            System.out.println("https://www.instagram.com/" + person);
+        }
     }
 
-    public static void parseJson(String filePath){
+    public static Set<String> parseJson(String filePath) {
+        Set<String> resultSet = new HashSet<>();
         try {
             // Read the file to a String
             String content = new String(Files.readAllBytes(Paths.get(filePath)));
 
             // Create a JSONArray
             JSONArray jsonArray = new JSONArray(content);
-
-            // Initialize an empty string to hold the values
-            StringBuilder values = new StringBuilder();
 
             // Loop through the array
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -49,19 +56,14 @@ public class JSONParser {
                     // Get the value of the "value" key
                     String value = obj.getString("value");
 
-                    // Add the value to the string, followed by a comma if it's not the last element
-                    values.append(value);
-                    if (i < jsonArray.length() - 1 || j < stringListData.length() - 1) {
-                        values.append(", ");
-                    }
+                    // Add the value to the result set
+                    resultSet.add(value);
                 }
             }
 
-            // Print the values
-            System.out.println(values.toString());
-            System.out.println("**********************************");
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return resultSet;
     }
 }

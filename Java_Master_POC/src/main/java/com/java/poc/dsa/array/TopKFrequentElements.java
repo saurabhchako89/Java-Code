@@ -1,6 +1,8 @@
 package com.java.poc.dsa.array;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * 347. Top K Frequent Elements
@@ -35,23 +37,95 @@ public class TopKFrequentElements {
         int[] nums = new int [] {1,1,2,2,3,2,3,3};
         int k = 2;
         System.out.println("Top frequent elements are : "+Arrays.toString(topKFrequent(nums,k)));
+        System.out.println("Top frequent elements using priority queue are : "+Arrays.toString(topKFrequentUsingPriorityQueue(nums,k)));
+        System.out.println("Top frequent elements using bucket sort are : "+Arrays.toString(topKFrequentUsingBucketSort(nums,k)));
+        System.out.println("Top frequent elements using stream are : "+Arrays.toString(topKFrequentUsingStream(nums,k)));
     }
 
     public static int[] topKFrequent(int[] nums, int k) {
         Map<Integer,Integer> map = new HashMap<>();
-        for(int num : nums){
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        int[] result = new int[k];
+        for(int n : nums){
+            map.put(n,map.getOrDefault(n,0)+1);
         }
 
-        // sort list from map.keyset() by map.get(num),
         List<Integer> list = new ArrayList<>(map.keySet());
-        Collections.sort(list, (a, b) -> map.get(b) - map.get(a));
+        list.sort((a,b)->map.get(b)-map.get(a));
+        for(int i=0;i<k;i++){
+            result[i] = list.get(i);
+        }
 
-        // transfer results from list to int[];
-        int[] res = new int[k];
-        for (int i = 0; i < k; i++) res[i] = list.get(i);
+        return result;
+    }
 
-        return res;
+    public static int[] topKFrequentUsingPriorityQueue(int[] nums, int k) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : nums) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>(
+                Comparator.comparingInt(Map.Entry::getValue)
+        );
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            minHeap.offer(entry);
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+            result[i] = minHeap.poll().getKey();
+        }
+        return result;
+    }
+
+    public static int[] topKFrequentUsingBucketSort(int[] nums, int k) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : nums) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        List<Integer>[] buckets = new List[nums.length + 1];
+        for (int i = 0; i < buckets.length; i++) {
+            buckets[i] = new ArrayList<>();
+        }
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            int freq = entry.getValue();
+            buckets[freq].add(entry.getKey());
+        }
+
+        int[] result = new int[k];
+        int index = 0;
+        for (int i = buckets.length - 1; i >= 0 && index < k; i--) {
+            for (int num : buckets[i]) {
+                if (index < k) {
+                    result[index++] = num;
+                } else {
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    public static int[] topKFrequentUsingStream(int[] nums, int k) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int n : nums) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
+        }
+
+        int[] result = map.entrySet()
+                .stream()
+                .sorted((a, b) -> b.getValue() - a.getValue())
+                .limit(k)
+                .mapToInt(Map.Entry::getKey)
+                .toArray();
+
+        return result;
     }
 
 }

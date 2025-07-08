@@ -12,7 +12,7 @@ public class GCD {
         System.out.println("GCD is " + result);
     }
 
-    private static int gcd(int a, int b) {
+    public static int gcd(int a, int b) {
         if (a == 0)
             return b;
         return gcd(b % a, a);
